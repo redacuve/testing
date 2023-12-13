@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="reload()">Reload</button>
+  <button onclick="setLorem()">Set Lorem</button>
+  <button onclick="setSource()">Set source</button>
+  <div id="primary"></div>
+</body>
+<script>
+  function reload() {
+    location.reload();
+  }
+
+  function setLorem() {
+    document.getElementById('primary').innerHTML = 'LOREM UPSUMS';
+  }
+
+  function setSource() {
+    //document.getElementById('primary').innerHTML = JSON.stringify(document.innerHTML);
+    let serializer = new XMLSerializer().serializeToString(window.document);
+    console.log(serializer)
+    document.getElementById('primary').innerText = serializer.toString();
+  }
+
+  function external() {
+    
+  }
+</script>
+</html>
